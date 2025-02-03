@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Site - Home</title>
 </head>
-<body>
 
-    <h1>Welcome to Blog Site</h1>
-    
+<body style="display:flex; align-items: center; justify-content: center;">
+    <div>
+        <h1>Welcome to Blog Site</h1>
+        <form method="post">
+            <label for="search">Search: </label>
+            <input type="text" name="search" placeholder="Title">
+            <button type="submit">Search</button>
+        </form>
+        <ul style="border: 1px solid #ccc;">
+            {% for blog in posts %}
+            <li style="border: 1px solid #ccc; padding: 5px; margin: 5px;">
+                <a href={{ url_for("post_detail", post_id=blog.id) }}>
+                    {{ blog.title }}
+                </a>
+                <p style="white-space: nowrap; width: 300px; overflow: hidden; text-overflow: ellipsis;">{{ blog.content
+                    }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
 </body>
+
 </html>

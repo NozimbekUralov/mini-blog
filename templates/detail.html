@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Site - Post</title>
 </head>
-<body>
 
-    <h1>{{ post.title }}</h1>
+<body style="display: flex; align-items: center; justify-content: center;">
 
-    <p>{{ post.content }}</p><br>
-    <p>{{ post.created_at }}</p>
+    <div>
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content }}</p><br>
+        <p>{{ post.created_at }}</p>
+        <a href="{{ url_for('blogs') }}">back</a>
+        <a href="{{ url_for('delete', post_id=post.id) }}">delete</a>
+    </div>
 
-    <a href="{{ url_for('blogs') }}">back</a>
-    
 </body>
+
 </html>
